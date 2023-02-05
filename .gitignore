@@ -1,10 +1,10 @@
 __pycache__/
-.vscode/
 env/
 *.txt
 !requirements.txt
 *.log
 .env
+.venv
 .DS_STORE
 test.py
 dist/
