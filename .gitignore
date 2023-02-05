@@ -1,0 +1,13 @@
+__pycache__/
+.vscode/
+env/
+*.txt
+!requirements.txt
+*.log
+.env
+.DS_STORE
+test.py
+dist/
+*.egg-info/
+pypitoken
+.pytest_cache
