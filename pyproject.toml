@@ -1,3 +1,43 @@
+[project]
+name = "pyalchemy"
+version = "1.0.0"
+authors = [
+  { name="Abe" },
+]
+description = "Unofficial Python SDK for the Alchemy API"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "requests~=2.28.2",
+]
+keywords = [
+    "opensea",
+    "api",
+    "sdk",
+    "python",
+    "nft",
+    "erc721",
+    "erc1155",
+    "ethereum",
+    "crypto",
+    "cryptocurrency",
+    "alchemy",
+    "web3",
+    "alchemy-sdk",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/FastestMolasses/alchemy-sdk"
+"Bug Tracker" = "https://github.com/FastestMolasses/alchemy-sdk/issues"
+
 [tool.poetry]
 name = "alchemy-sdk"
 version = "0.1.0"

@@ -255,8 +255,6 @@ class AlchemyAPI:
             headers=self.headers,
         )
 
-        print(response.url)
-
         if response.status_code == 400:
             raise ValueError(response.text)
 
