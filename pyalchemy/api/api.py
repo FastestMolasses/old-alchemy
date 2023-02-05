@@ -4,6 +4,7 @@ from typing import Union, Any, Literal
 from pyalchemy.endpoints import transfers, nft
 
 from pyalchemy.types import nfts as nft_types
+from pyalchemy.types import tokens as token_types
 from pyalchemy.types import transfers as transfer_types
 
 
@@ -38,6 +39,166 @@ class AlchemyAPI:
             'orderBy': orderBy,
         }
         return self._makeRequest(url=nft.getNFTs(self.apiKey), params=params)
+
+    def getContractsForOwner(self,
+                             owner: str,
+                             pageKey: str | None = None,
+                             pageSize: int = 100,
+                             excludeFilters: list[nft_types.NFTFilters] | None = None,
+                             includeFilters: list[nft_types.NFTFilters] | None = None,
+                             orderBy: Literal['transferTime', 'null'] | None = None
+                             ) -> dict[Any, Any]:
+        params = {
+            'owner': owner,
+            'pageKey': pageKey,
+            'pageSize': pageSize,
+            'excludeFilters': excludeFilters,
+            'includeFilters': includeFilters,
+            'orderBy': orderBy,
+        }
+        return self._makeRequest(url=nft.getContractsForOwner(self.apiKey), params=params)
+
+    def getOwnersForToken(self, contractAddress: str, tokenId: str | int) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+            'tokenId': tokenId,
+        }
+        return self._makeRequest(url=nft.getOwnersForToken(self.apiKey), params=params)
+
+    def getOwnersForCollection(self,
+                               contractAddress: str,
+                               withTokenBalances: bool = False,
+                               block: str | None = None,
+                               pageKey: str | None = None) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+            'withTokenBalances': withTokenBalances,
+            'block': block,
+            'pageKey': pageKey,
+        }
+        return self._makeRequest(url=nft.getOwnersForCollection(self.apiKey), params=params)
+
+    def isHolderOfCollection(self, wallet: str, contractAddress: str) -> dict[Any, Any]:
+        params = {
+            'wallet': wallet,
+            'contractAddress': contractAddress,
+        }
+        return self._makeRequest(url=nft.isHolderOfCollection(self.apiKey), params=params)
+
+    def getNFTMetadata(self,
+                       contractAddress: str,
+                       tokenId: str | int,
+                       tokenType: token_types.Token | None = None,
+                       tokenUriTimeoutInMs: int | None = None,
+                       refreshCache: bool = False) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+            'tokenId': tokenId,
+            'tokenType': tokenType,
+            'tokenUriTimeoutInMs': tokenUriTimeoutInMs,
+            'refreshCache': refreshCache,
+        }
+        return self._makeRequest(url=nft.getNFTMetadata(self.apiKey), params=params)
+
+    def getNFTMetadataBatch(self,
+                            tokens: list[token_types.TokenObject],
+                            tokenUriTimeoutInMs: int | None = None,
+                            refreshCache: bool = False) -> dict[Any, Any]:
+        payload = {
+            'tokens': tokens,
+            'tokenUriTimeoutInMs': tokenUriTimeoutInMs,
+            'refreshCache': refreshCache,
+        }
+        return self._makeRequest(url=nft.getNFTMetadataBatch(self.apiKey),
+                                 data=payload,
+                                 method='POST')
+
+    def getContractMetadataBatch(self, contractAddresses: list[str]) -> dict[Any, Any]:
+        payload = {
+            'contractAddresses': contractAddresses,
+        }
+        return self._makeRequest(url=nft.getContractMetadataBatch(self.apiKey),
+                                 data=payload,
+                                 method='POST')
+
+    def searchContractMetadata(self, query: str) -> dict[Any, Any]:
+        params = {
+            'query': query,
+        }
+        return self._makeRequest(url=nft.searchContractMetadata(self.apiKey), params=params)
+
+    def reingestContract(self, contractAddress: str) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+        }
+        return self._makeRequest(url=nft.reingestContract(self.apiKey), params=params)
+
+    def getNFTsForCollection(self,
+                             contractAddress: str,
+                             withMetadata: bool = False,
+                             startToken: str | int | None = None,
+                             limit: int = 100,
+                             tokenUriTimeoutInMs: int | None = None) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+            'withMetadata': withMetadata,
+            'startToken': startToken,
+            'limit': limit,
+            'tokenUriTimeoutInMs': tokenUriTimeoutInMs,
+        }
+        return self._makeRequest(url=nft.getNFTsForCollection(self.apiKey), params=params)
+
+    def isSpamContract(self, contractAddress: str) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+        }
+        return self._makeRequest(url=nft.isSpamContract(self.apiKey), params=params)
+
+    def getFloorPrice(self, contractAddress: str) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+        }
+        return self._makeRequest(url=nft.getFloorPrice(self.apiKey), params=params)
+
+    def getNFTSales(self,
+                    fromBlock: str | int | Literal['latest'] = 0,
+                    toBlock: str | int | Literal['latest'] = 'latest',
+                    order: Literal['asc', 'desc'] = 'desc',
+                    marketplace: nft_types.Marketplace | None = None,
+                    contractAddress: str | None = None,
+                    tokenId: str | int | None = None,
+                    buyerAddress: str | None = None,
+                    sellerAddress: str | None = None,
+                    taker: Literal['buyer', 'seller'] | None = None,
+                    limit: int = 1000,
+                    pageKey: str | None = None) -> dict[Any, Any]:
+        params = {
+            'fromBlock': fromBlock,
+            'toBlock': toBlock,
+            'order': order,
+            'marketplace': marketplace,
+            'contractAddress': contractAddress,
+            'tokenId': tokenId,
+            'buyerAddress': buyerAddress,
+            'sellerAddress': sellerAddress,
+            'taker': taker,
+            'limit': limit,
+            'pageKey': pageKey,
+        }
+        return self._makeRequest(url=nft.getNFTSales(self.apiKey), params=params)
+
+    def computeRarity(self, contractAddress: str, tokenId: str | int) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+            'tokenId': tokenId,
+        }
+        return self._makeRequest(url=nft.computeRarity(self.apiKey), params=params)
+
+    def summarizeNFTAttributes(self, contractAddress: str) -> dict[Any, Any]:
+        params = {
+            'contractAddress': contractAddress,
+        }
+        return self._makeRequest(url=nft.summarizeNFTAttributes(self.apiKey), params=params)
 
     # ====================================== Transfers ======================================
     def getAssetTransfers(self,
@@ -104,6 +265,9 @@ class AlchemyAPI:
 
         elif response.status_code == 403:
             raise ConnectionError('Access denied')
+
+        elif response.status_code == 404:
+            raise ValueError('Not found')
 
         elif response.status_code == 429:
             raise ConnectionError('Rate limit exceeded')
