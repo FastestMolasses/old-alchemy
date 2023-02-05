@@ -1,8 +1,8 @@
+from typing import Any, Literal, Union
+
 import requests
 
-from typing import Union, Any, Literal
-from pyalchemy.endpoints import transfers, nft
-
+from pyalchemy.endpoints import nft, transfers
 from pyalchemy.types import nfts as nft_types
 from pyalchemy.types import tokens as token_types
 from pyalchemy.types import transfers as transfer_types

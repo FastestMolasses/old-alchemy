@@ -11,3 +11,5 @@ dist/
 *.egg-info/
 pypitoken
 .pytest_cache
+.ruff_cache
+.mypy_cache
