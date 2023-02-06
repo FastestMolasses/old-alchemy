@@ -30,6 +30,10 @@ keywords = [
     "web3",
     "alchemy-sdk",
 ]
+dependencies = [
+    "aiohttp>=3.8",
+    "aiodns>=3.0",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/FastestMolasses/alchemy-sdk"
@@ -44,8 +48,9 @@ readme = "README.md"
 packages = [{include = "alchemy_sdk"}]
 
 [tool.poetry.dependencies]
-python = ">= 3.9, <4"
-requests = "^2.28.2"
+python = ">= 3.9, < 4"
+aiohttp = "^3.8"
+aiodns = "^3.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.241"
