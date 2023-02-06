@@ -3,10 +3,10 @@ from typing import Any, Literal, Union, Callable
 import json
 import aiohttp
 
-from pyalchemy.endpoints import nft, transfers
-from pyalchemy.types import nfts as nft_types
-from pyalchemy.types import tokens as token_types
-from pyalchemy.types import transfers as transfer_types
+from alchemysdk.endpoints import nft, transfers
+from alchemysdk.types import nfts as nft_types
+from alchemysdk.types import tokens as token_types
+from alchemysdk.types import transfers as transfer_types
 
 
 class AlchemyAPI:

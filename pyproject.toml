@@ -1,20 +1,12 @@
-[project]
-name = "pyalchemy"
-version = "1.0.0"
-authors = [
-  { name="Abe" },
-]
-description = "Unofficial Python SDK for the Alchemy API"
+[tool.poetry]
+name = "alchemysdk"
+version = "0.1.0"
+description = "An unofficial Python SDK for the Alchemy API"
+authors = ["Abe M <abe.malla8@gmail.com>"]
 readme = "README.md"
-license = { file="LICENSE" }
-requires-python = ">=3.9"
-classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-]
+license = "MIT"
+homepage = "https://github.com/FastestMolasses/alchemy-sdk"
+repository = "https://github.com/FastestMolasses/alchemy-sdk"
 keywords = [
     "opensea",
     "api",
@@ -30,22 +22,6 @@ keywords = [
     "web3",
     "alchemy-sdk",
 ]
-dependencies = [
-    "aiohttp>=3.8",
-    "aiodns>=3.0",
-]
-
-[project.urls]
-"Homepage" = "https://github.com/FastestMolasses/alchemy-sdk"
-"Bug Tracker" = "https://github.com/FastestMolasses/alchemy-sdk/issues"
-
-[tool.poetry]
-name = "alchemy-sdk"
-version = "0.1.0"
-description = "An unofficial Python SDK for the Alchemy API"
-authors = ["Abe M <abe.malla8@gmail.com>"]
-readme = "README.md"
-packages = [{include = "alchemy_sdk"}]
 
 [tool.poetry.dependencies]
 python = ">= 3.9, < 4"

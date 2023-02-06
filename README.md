@@ -31,18 +31,6 @@ Poetry:
 poetry update alchemy-sdk
 ```
 
-## Local Development
-
-Using pip:
-```bash
-pip install -r requirements.txt
-```
-
-Using poetry:
-```bash
-poetry install
-```
-
 ## Contributing
 
 1. Fork it (<https://github.com/FastestMolasses/alchemy-sdk/fork>)
