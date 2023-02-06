@@ -18,24 +18,24 @@ Requirements: Python 3.9+
 
 Pip:
 ```bash
-pip install alchemy-sdk
+pip install alchemysdk
 ```
 
 Poetry:
 ```bash
-poetry add alchemy-sdk
+poetry add alchemysdk
 ```
 
 ### Upgrade
 
 Pip:
 ```bash
-pip install alchemy-sdk -U
+pip install alchemysdk -U
 ```
 
 Poetry:
 ```bash
-poetry update alchemy-sdk
+poetry update alchemysdk
 ```
 
 ## Usage
