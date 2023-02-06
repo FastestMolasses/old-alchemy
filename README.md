@@ -1,6 +1,6 @@
 # Python SDK for the Alchemy API
 
-![python](https://github.com/FastestMolasses/alchemy-sdk/actions/workflows/main.yaml/badge.svg)
+![python](https://github.com/FastestMolasses/alchemy-sdk/actions/workflows/main.yaml/badge.svg) [![PyPI version](https://badge.fury.io/py/alchemysdk.svg)](https://badge.fury.io/py/alchemysdk)
 
 An unofficial Python SDK for the [Alchemy API](https://docs.alchemy.com/).
 
